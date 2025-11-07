@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aranyak Das — Network Security Engineer</title>
+    <meta
+      name="description"
+      content="Aranyak Das — Network & Security Engineer. Cisco TAC background, firewall, routing, BGP/OSPF, FTD/ASA."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0f1724;
+        --card: #0b1220;
+        --muted: #9aa4b2;
+        --accent: #00d1b2;
+        --glass: rgba(255, 255, 255, 0.04);
+        --maxw: 1000px;
+        --radius: 14px;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
+        background: linear-gradient(180deg, #071021 0%, #071527 60%);
+        color: #e6eef6;
+        -webkit-font-smoothing: antialiased;
+      }
+      body {
+        padding: 28px 24px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      .wrap {
+        width: 100%;
+        max-width: var(--maxw);
+        margin: 40px auto 20px;
+      }
+
+      header {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        margin-bottom: 22px;
+      }
+      .avatar {
+        width: 96px;
+        height: 96px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 2px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 6px 20px rgba(2, 6, 23, 0.6);
+        background: linear-gradient(180deg, #021 0%, #023 100%);
+        position: relative;
+        margin-right: 8px;
+      }
+      .title {
+        flex: 1;
+      }
+      .name {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+      }
+      .role {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+      }
+      /* .btn {
+        background: var(--accent);
+        color: #0e0341;
+        border: none;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+      } */
+      .btn.ghost {
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 20px;
+      }
+      @media (max-width: 920px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .actions {
+          display: none;
+        }
+      }
+
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: 0 6px 22px rgba(2, 6, 23, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      h2 {
+        font-size: 14px;
+        margin: 0 0 12px;
+        letter-spacing: 0.6px;
+      }
+      p.lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .section {
+        margin-bottom: 18px;
+      }
+      .meta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .meta .chip {
+        background: var(--glass);
+        padding: 8px 10px;
+        border-radius: 10px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .experience .job {
+        padding: 12px;
+        border-radius: 10px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.01),
+          transparent
+        );
+        margin-bottom: 10px;
+      }
+      .job .company {
+        font-weight: 700;
+      }
+      .job .period {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .job ul {
+        margin: 8px 0 0 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .skills {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .skills .skill {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 13px;
+      }
+
+      aside .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .contact a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .contact .info {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .download {
+        margin-top: 10px;
+      }
+      footer {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      nav {
+        position: fixed;
+        right: 22px;
+        top: 22px;
+        display: flex;
+        gap: 8px;
+      }
+      nav a {
+        color: var(--muted);
+        font-size: 13px;
+        text-decoration: none;
+        padding: 8px 10px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <img src="photo.jpg" class="avatar" alt="Aranyak Das photo" />
+        <div class="title">
+          <h1 class="name">Aranyak Das</h1>
+          <div class="role">
+            Network Security Engineer — Cisco TAC background
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#contact">Contact</a>
+          <a class="btn ghost" href="#experience">Experience</a>
+        </div>
+      </header>
+
+      <div class="grid">
+        <main>
+          <section class="card section" id="about">
+            <h2>About</h2>
+            <p class="lead">
+              Network Security Engineer with 3 years of experience in
+              configuring and troubleshooting Cisco ASA, FTD, and IPS. Skilled
+              in policy creation, secure network design, and resolving complex
+              issues across customer-facing environments and internal setups
+              using industry-standard tools.
+            </p>
+            <div style="margin-top: 12px" class="meta">
+              <div class="chip">Kolkata, India</div>
+              <div class="chip">Open to Relocation</div>
+              <div class="chip">2.7 years experience</div>
+              <div class="chip">Notice period: 30 days</div>
+            </div>
+          </section>
+
+          <section class="card section" id="experience">
+            <h2>Experience</h2>
+            <div class="experience">
+              <div class="job">
+                <div class="company">
+                  Infrastructure Security Engineer — Gruve Technologies
+                </div>
+                <div class="period">Apr 2025 — Present • Pune, IN</div>
+                <ul>
+                  <li>
+                    24×7 remote support: incident response, change management
+                    and SLA handling.
+                  </li>
+                  <li>
+                    Configured and troubleshot large IP networks: ASA/FTD, BGP,
+                    OSPF, IPsec and policy optimisation.
+                  </li>
+                  <li>
+                    Proactive monitoring, automation scripts for routine checks,
+                    and cross-team documentation.
+                  </li>
+                </ul>
+              </div>
+              <div class="job">
+                <div class="company">
+                  Technical Consulting Engineer — Capgemini (Cisco)
+                </div>
+                <div class="period">Mar 2023 — Apr 2025 • Gurugram, IN</div>
+                <ul>
+                  <li>
+                    Customer-facing support for Firepower, FTD, ASA and IPS.
+                    Recreated client scenarios in lab and resolved escalations
+                    within SLA.
+                  </li>
+                  <li>
+                    Used Packet Capture, Wireshark and data analysis to debug
+                    complex issues.
+                  </li>
+                </ul>
+              </div>
+              <div class="job">
+                <div class="company">Cyber Security Intern — Webskitters</div>
+                <div class="period">Jan 2022 — Jul 2022 • Kolkata, IN</div>
+                <ul>
+                  <li>
+                    Hands-on experience with Windows privilege escalation and
+                    post-exploitation methods.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="card section" id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+              <div class="skill">Cisco ASA / FTD</div>
+              <div class="skill">BGP • OSPF</div>
+              <div class="skill">IPsec / VPN</div>
+              <div class="skill">Wireshark</div>
+              <div class="skill">SolarWinds</div>
+              <div class="skill">Routing & Switching</div>
+              <div class="skill">Incident Management</div>
+              <div class="skill">AWS basics</div>
+              <div class="skill">Firewall Rule Optimization</div>
+              <div class="skill">Network Automation</div>
+              <div class="skill">Linux / CLI</div>
+            </div>
+          </section>
+
+          <section class="card section" id="education">
+            <h2>Education & Certifications</h2>
+            <p class="lead">
+              B.Tech — Electronics & Communication Engineering, West Bengal
+              University of Technology (2018–2022) — GPA: 8.75
+            </p>
+            <div style="margin-top: 8px; color: var(--muted); font-size: 13px">
+              Cisco CCNA (training) • AWS Cloud Practitioner Essentials
+              (Coursera) • Google Cyber Security Certification
+            </div>
+          </section>
+        </main>
+
+        <aside>
+          <div class="card section contact-card" id="contact">
+            <h2>Contact</h2>
+            <div class="contact">
+              <div class="info">
+                Phone:
+                <a href="tel:+917278282797" class="contact-link"
+                  >+91 72782 82797</a
+                >
+              </div>
+              <div class="info">
+                Email:
+                <a href="mailto:aranyakd.99@gmail.com">aranyakd.99@gmail.com</a>
+              </div>
+              <div class="info">
+                LinkedIn:
+                <a
+                  href="https://www.linkedin.com/in/aranyak-das17/"
+                  target="_blank"
+                  rel="noopener"
+                  >aranyak-das17</a
+                >
+              </div>
+              <div class="download">
+                <a class="btn" href="CV_Aranyak_Das.pdf" target="_blank"
+                  >Download CV</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="card section">
+            <h2>Quick facts</h2>
+            <div class="meta">
+              <div class="chip">24×7 Ops</div>
+              <div class="chip">Customer-facing</div>
+              <div class="chip">Lab recreations</div>
+            </div>
+          </div>
+
+          <div class="card section">
+            <h2>Availability</h2>
+              <p class="lead">
+              Immediate availability for interviews.</p>
+              
+              <p class="lead">Seeking mid-level SRE / Network Security roles — Onsite, Hybrid,
+              Remote.
+              </p>
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      <footer>© Aranyak Das</footer>
+    </div>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <script>
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "c" && !e.metaKey && !e.ctrlKey) {
+          location.href = "mailto:aranyakd.99@gmail.com";
+        }
+      });
+    </script>
+  </body>
+</html>
